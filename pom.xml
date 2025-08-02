@@ -1,0 +1,106 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.4</version>
+		<relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <groupId>com.cogneworx.intelsync</groupId>
+    <artifactId>analysis</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>analysis</name>
+    <description>The Analysis Service is responsible for processing ingested documents to extract named entities such as people, locations, and organizations using Apache OpenNLP and custom heuristics. Extracted entities are persisted in ArangoDB as nodes and relationships to form a case-centric knowledge graph. The service also exposes REST APIs to retrieve graph data for visualization and further investigation.</description>
+  <url/>
+
+  <licenses>
+		<license/>
+  </licenses>
+
+  <developers>
+		<developer/>
+  </developers>
+
+  <scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+  </scm>
+
+  <properties>
+		<java.version>21</java.version>
+  </properties>
+
+  <dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- OpenNLP -->
+		<dependency>
+			<groupId>org.apache.opennlp</groupId>
+			<artifactId>opennlp-tools</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>	
+
+		<!-- ArangoDB -->
+		<dependency>
+			<groupId>com.arangodb</groupId>
+			<artifactId>arangodb-spring-data</artifactId>
+			<version>4.4.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.32</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Spring Boot Configuration Processor -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Jackson Datatype for Java 8 Time API -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+	</dependencies>
+
+  <build>
+		<plugins>
+			<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+  </build>
+</project>

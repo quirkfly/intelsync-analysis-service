@@ -1,0 +1,23 @@
+erver:
+  port: 8082
+
+spring:
+  application:
+  name: analysis
+  data:
+    arangodb:
+      host: ${ADB_HOST}
+      port: ${ADB_PORT}
+      username: ${ADB_USER}
+      password: ${ADB_PASSWORD}
+      database: ${ADB_DATABASE}
+      
+opennlp:
+  model:
+    person: classpath:models/en-ner-person.bin
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.web: DEBUG
+    com.cogneworx: DEBUG
