@@ -1,4 +1,3 @@
-
 # Analysis Service
 
 The `analysis-service` is a Spring Boot microservice responsible for analyzing ingested text and extracting named entities (e.g., person names), which are stored as graph data in ArangoDB. This service is designed to work in coordination with the ingestion and search modules of the IntelSync platform.
@@ -167,3 +166,44 @@ mvn spring-boot:run
 For support, reach out to the IntelSync dev team or open an issue in the project repository.
 
 ---
+
+### 🕸️ Fetch Graph for a Case
+
+**Endpoint:**
+```
+GET /api/analysis/graph?caseId={caseId}
+```
+
+**Description:**
+Retrieves graph data from ArangoDB for the specified case ID. The graph contains person nodes and any defined relationships between them (edges).
+
+**Request Parameters:**
+- `caseId`: required (string) — the ID of the case to fetch the graph for.
+
+**Example cURL:**
+```bash
+curl -X GET "http://localhost:8082/api/analysis/graph?caseId=case-123"
+```
+
+**Response:**
+```json
+{
+  "nodes": [
+    {
+      "id": "person1",
+      "label": "John Doe"
+    },
+    {
+      "id": "person2",
+      "label": "Jane Smith"
+    }
+  ],
+  "edges": [
+    {
+      "from": "person1",
+      "to": "person2",
+      "label": "mentioned_with"
+    }
+  ]
+}
+```

@@ -54,4 +54,14 @@ public class EntityExtractionController {
 
         return ResponseEntity.ok(Map.of("message", "Entities saved successfully"));
     }
+
+    @GetMapping("/graph")
+    public ResponseEntity<Map<String, List<?>>> getGraph(@RequestParam String caseId) {
+        if (caseId == null || caseId.isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of("error", List.of("caseId is required")));
+        }
+
+        Map<String, List<?>> graph = graphStorageService.fetchGraphForCase(caseId);
+        return ResponseEntity.ok(graph);
+    }
 }
